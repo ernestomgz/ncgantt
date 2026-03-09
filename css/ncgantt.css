@@ -406,3 +406,69 @@
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .app-ncgantt .gannt_container {
+        background: #1e1e1e;
+    }
+    .app-ncgantt .status-section {
+        background: #2d2d2d;
+        color: #e0e0e0;
+    }
+    .app-ncgantt .label {
+        color: #ccc;
+    }
+    .app-ncgantt .error {
+        background: #522;
+        color: #f99;
+    }
+    .app-ncgantt .success {
+        background: #252;
+        color: #9f9;
+    }
+    .app-ncgantt .loading {
+        color: #ccc;
+    }
+    .app-ncgantt .color-box {
+        border: 1px solid #555;
+    }
+    .app-ncgantt .labels-section {
+        border-top: 2px solid #555;
+    }
+    .app-ncgantt .md_textarea {
+        border-color: #555;
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+    }
+    .app-ncgantt .html-md-icon-toggle, 
+    .app-ncgantt .md-html-icon-toggle {
+        background-color: transparent;
+    }
+    .app-ncgantt .gantt-container .popup-wrapper hr {
+        border: 1px solid #444;
+    }
+    
+    /* Frappe Gantt Dark Mode Fixes */
+    .app-ncgantt .gantt .grid-background { fill: #1e1e1e; }
+    .app-ncgantt .gantt .tick, 
+    .app-ncgantt .gantt .grid-header, 
+    .app-ncgantt .gantt .grid-row { stroke: #444; }
+    .app-ncgantt .gantt .upper-text, 
+    .app-ncgantt .gantt .lower-text { fill: #e0e0e0; }
+    .app-ncgantt .gantt-container .popup-wrapper { background-color: #2d2d2d; color: #e0e0e0; }
+    .app-ncgantt .board-select, 
+    .app-ncgantt .import-export-select, 
+    .app-ncgantt .import-export-btn { 
+        background: #2d2d2d; 
+        color: #e0e0e0; 
+        border: 1px solid #444; 
+    }
+}
+
+/* Mobile specific dark mode override */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+    .app-ncgantt .gantt-container .popup-wrapper {
+        background-color: #1e1e1e !important;
+        color: #e0e0e0 !important;
+    }
+}
