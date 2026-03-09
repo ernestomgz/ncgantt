@@ -2,12 +2,59 @@
  * All styles are scoped to .app-ncgantt to prevent conflicts
  */
 
+
+ :root {
+    /* Light Mode Variables */
+    --gantt-bg: #ffffff;
+    --gantt-container-bg: #ffffff;
+    --gantt-status-bg: #f8f9fa;
+    --gantt-text: #222222;
+    --gantt-text-muted: #666666;
+    --gantt-border: #dddddd;
+    --gantt-popup-bg: #ffffff;
+    --gantt-hr: #e9e9e9;
+    --gantt-grid-line: #eeeeee;
+    
+    /* Palette Variables */
+    --gantt-color-1: #52ba52;
+    --gantt-color-2: #5ca5d7;
+    --gantt-color-3: #ff7f0e;
+    --gantt-color-4: #ad91c6;
+    --gantt-color-5: #8c564b;
+    --gantt-color-6: #e377c2;
+    --gantt-color-7: #7f7f7f;
+    --gantt-color-8: #bcbd22;
+    --gantt-color-9: #17becf;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gantt-bg: #1e1e1e;
+        --gantt-container-bg: #1e1e1e;
+        --gantt-status-bg: #2d2d2d;
+        --gantt-text: #e0e0e0;
+        --gantt-text-muted: #cccccc;
+        --gantt-border: #444444;
+        --gantt-popup-bg: #2d2d2d;
+        --gantt-hr: #444444;
+        --gantt-grid-line: #333333;
+
+        /* Muted Palette for Dark Mode */
+        --gantt-color-1: #2d662d;
+        --gantt-color-2: #3a6887;
+        --gantt-color-3: #a35209;
+        /* ... add others as needed ... */
+    }
+}
+
+
 .app-ncgantt {
     /* Main container */
     .gannt_container {
         max-width: 100%;
         margin: 0 3px;
-        background: white;
+        background: var(--gantt-bg);
         padding: 20px;
         padding-top: 5px;
         border-radius: 8px;
@@ -41,7 +88,7 @@
     /* Status section */
     .status-section {
         width: 95%;
-        background: #f8f9fa;
+        background: var(--gantt-status-bg);
         border-radius: 6px;
         margin-bottom: 0px;
         padding: 10px;
@@ -62,7 +109,7 @@
     .label {
         display: block;
         margin-bottom: 5px;
-        color: #666;
+        color: var(--gantt-text-muted);
         font-weight: bold;
         white-space: nowrap;
     }
@@ -75,7 +122,7 @@
 
     /* Status messages */
     .error {
-        background: #fee;
+        background: var(--gantt-bg);
         color: #c33;
         padding: 2px 8px;
         border-radius: 4px;
@@ -83,7 +130,7 @@
     }
 
     .success {
-        background: #efe;
+        background: var(--gantt-bg);
         color: #363;
         padding: 2px 8px;
         border-radius: 4px;
@@ -92,7 +139,7 @@
 
     .loading {
         text-align: center;
-        color: #666;
+        color: var(--gantt-text-muted);
         padding: 2px 8px;
         border-radius: 4px;
         height: 22px;
@@ -117,7 +164,7 @@
         width: 20px;
         height: 13px;
         border-radius: 4px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--gantt-border);
         font-size: 9px;
         text-align: center;
     }
@@ -126,7 +173,7 @@
     .labels-section {
         margin-top: 5px;
         padding-top: 0px;
-        border-top: 2px solid #ddd;
+        border-top: 2px solid var(--gantt-border);
     }
 
     .labels-title {
@@ -235,7 +282,7 @@
     }
 
     .gantt-container .popup-wrapper hr {
-        border: 1px solid #e9e9e9;
+        border: 1px solid var(--gantt-hr);
     }
 
     .gantt-container .popup-wrapper .popup-top-line {
@@ -260,7 +307,7 @@
         cursor: pointer;
         user-select: none;
         background-image: unset;
-        background-color: white;
+        background-color: var(--gantt-popup-bg) ;
         padding: 1px 2px;
     }
 
@@ -309,7 +356,7 @@
             left: 5px !important;
             width: 92vw !important;
             height: 90vh !important;
-            background-color: white !important;
+            background-color: var(--gantt-popup-bg) !important;
             z-index: 9999 !important;
             overflow: auto !important;
             padding: 15px;
@@ -404,71 +451,5 @@
         .gantt-container {
             overflow: visible !important;
         }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .app-ncgantt .gannt_container {
-        background: #1e1e1e;
-    }
-    .app-ncgantt .status-section {
-        background: #2d2d2d;
-        color: #e0e0e0;
-    }
-    .app-ncgantt .label {
-        color: #ccc;
-    }
-    .app-ncgantt .error {
-        background: #522;
-        color: #f99;
-    }
-    .app-ncgantt .success {
-        background: #252;
-        color: #9f9;
-    }
-    .app-ncgantt .loading {
-        color: #ccc;
-    }
-    .app-ncgantt .color-box {
-        border: 1px solid #555;
-    }
-    .app-ncgantt .labels-section {
-        border-top: 2px solid #555;
-    }
-    .app-ncgantt .md_textarea {
-        border-color: #555;
-        background-color: #2d2d2d;
-        color: #e0e0e0;
-    }
-    .app-ncgantt .html-md-icon-toggle, 
-    .app-ncgantt .md-html-icon-toggle {
-        background-color: transparent;
-    }
-    .app-ncgantt .gantt-container .popup-wrapper hr {
-        border: 1px solid #444;
-    }
-    
-    /* Frappe Gantt Dark Mode Fixes */
-    .app-ncgantt .gantt .grid-background { fill: #1e1e1e; }
-    .app-ncgantt .gantt .tick, 
-    .app-ncgantt .gantt .grid-header, 
-    .app-ncgantt .gantt .grid-row { stroke: #444; }
-    .app-ncgantt .gantt .upper-text, 
-    .app-ncgantt .gantt .lower-text { fill: #e0e0e0; }
-    .app-ncgantt .gantt-container .popup-wrapper { background-color: #2d2d2d; color: #e0e0e0; }
-    .app-ncgantt .board-select, 
-    .app-ncgantt .import-export-select, 
-    .app-ncgantt .import-export-btn { 
-        background: #2d2d2d; 
-        color: #e0e0e0; 
-        border: 1px solid #444; 
-    }
-}
-
-/* Mobile specific dark mode override */
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-    .app-ncgantt .gantt-container .popup-wrapper {
-        background-color: #1e1e1e !important;
-        color: #e0e0e0 !important;
     }
 }

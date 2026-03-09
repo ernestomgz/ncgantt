@@ -40,8 +40,9 @@ class NCGantt {
                 bar_height: 20,
             },
             colorPalette: [
-                '#52ba52', '#5ca5d7', '#ff7f0e', '#ad91c6',
-                '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf'
+              'var(--gantt-color-1)', 'var(--gantt-color-2)', 'var(--gantt-color-3)',
+              'var(--gantt-color-4)', 'var(--gantt-color-5)', 'var(--gantt-color-6)',
+              'var(--gantt-color-7)', 'var(--gantt-color-8)', 'var(--gantt-color-9)'
             ],
             update_timer_interval: 2000,
             update_blocking_delay: 2100,
@@ -159,6 +160,12 @@ class NCGantt {
         return false;
     }
 
+    isDarkMode() {
+    // Detect Nextcloud dark mode or system preference
+    return document.documentElement.classList.contains('theme-dark') || 
+           window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
     // Helper to get element within app scope
     getElement(selector) {
         const appContainer = document.querySelector('.app-ncgantt');
@@ -179,20 +186,26 @@ class NCGantt {
         return document.querySelectorAll(selector);
     }
 
-    // Environment setup
+    
     setupEnvironment() {
         const el = this.getElement('#settingsContainer');
         if (!el) return;
         
+        const isDark = this.isDarkMode();
+        // If icons are dark by default, apply a CSS filter to make them white in dark mode
+        const iconClass = isDark ? 'class="icon-invert"' : '';
+
         if (this.config.isNextcloud) {
             el.classList.add("hidden");
-            this.symbols.edit =    '<img src="../../custom_apps/ncgantt/img/pencil2.svg">';
-            this.symbols.confirm = '<img src="../../custom_apps/ncgantt/img/check-square-outlined.svg">';
-            this.symbols.close =   '<img src="../../custom_apps/ncgantt/img/close-outlined-cross.svg">';
+            // Use Nextcloud's native paths but add the invert class if needed
+            this.symbols.edit =    `<img ${iconClass} src="../../custom_apps/ncgantt/img/pencil2.svg">`;
+            this.symbols.confirm = `<img ${iconClass} src="../../custom_apps/ncgantt/img/check-square-outlined.svg">`;
+            this.symbols.close =   `<img ${iconClass} src="../../custom_apps/ncgantt/img/close-outlined-cross.svg">`;
         } else {
             el.classList.remove("hidden");
         }
     }
+
 
     // Event listener management with automatic cleanup tracking
     addEventListener(element, event, handler, options) {
@@ -273,6 +286,14 @@ class NCGantt {
         this.addEventListener(window, 'online', () => {
             this.state.isOnline = true;
             this.showSuccess("You are online");
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            this.setupEnvironment();
+            if (this.state.ganttChart) {
+                this.createGanttChart(); // Re-render to apply new variable colors
+            }
         });
     }
 
