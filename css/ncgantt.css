@@ -16,13 +16,13 @@
     --gantt-grid-line: #eeeeee;
 
     /* STATE COLORS (Light Mode) */
-    --gantt-color-1: #9aa4af;
-    --gantt-color-2: #2f80ed;
-    --gantt-color-3: #27ae60;
+    --gantt-color-1: #56ccf2;
+    --gantt-color-2: #6c757d;
+    --gantt-color-3: #9b51e0;
     --gantt-color-4: #f2994a;
-    --gantt-color-5: #9b51e0;
-    --gantt-color-6: #6c757d;
-    --gantt-color-7: #56ccf2;
+    --gantt-color-5: #27ae60;    
+    --gantt-color-6: #2f80ed;
+    --gantt-color-7: #9aa4af;
     --gantt-color-8: #f2c94c;
     --gantt-color-9: #eb5757;
     --gantt-color-10: #219653;
@@ -44,17 +44,19 @@
 
         /* STATE COLORS (Dark Mode tuned for contrast) */
 
-        --gantt-color-1: #7f8c98;
-        --gantt-color-2: #4ea1ff;
-        --gantt-color-3: #35d07f;
+        
+        --gantt-color-1: #63d2ff;
+        --gantt-color-2: #8a939c;
+        --gantt-color-3: #bb86fc;
         --gantt-color-4: #ffb066;
-        --gantt-color-5: #bb86fc;
-        --gantt-color-6: #8a939c;
-        --gantt-color-7: #63d2ff;
+        --gantt-color-5: #35d07f;
+        --gantt-color-6: #4ea1ff;
+        --gantt-color-7: #7f8c98;
         --gantt-color-8: #f7d774;
         --gantt-color-9: #ff6b6b;
         --gantt-color-10: #3ddc97;
     }
+
 }
 
 
