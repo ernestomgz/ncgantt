@@ -335,6 +335,22 @@ class NCGantt {
         }
     }
 
+    extractDependencies(description) {
+        if (!description) return '';
+        
+        // Matches standard Nextcloud Deck card URLs
+        const regex = /card\/(\d+)/g;
+        let deps = new Set(); // Use a Set to prevent duplicate dependencies
+        let match;
+        
+        while ((match = regex.exec(description)) !== null) {
+            // Format must match the ID definition in createGanttChart: `card-${id}`
+            deps.add(`card-${match[1]}`);
+        }
+        
+        return Array.from(deps).join(', ');
+    }
+
     async _makeApiCallInternal(endpoint, method, body) {
         const apiVersion = 'v1.1';
         
@@ -937,7 +953,10 @@ class NCGantt {
                         progress: progress || 0,
                         color: this.stackColors[stack.id],
                         color_progress: '#cfcfcfa3',
-                        dependencies: '',
+                        
+                        // get dependencies
+                        dependencies: this.extractDependencies(card.description),
+                        
                         custom_class: `stack-${stack.id}`,
                         //stack: stack.title,  // not needed
                         description: description_safeHtml || '',
