@@ -14,18 +14,20 @@
     --gantt-popup-bg: #ffffff;
     --gantt-hr: #e9e9e9;
     --gantt-grid-line: #eeeeee;
-    
-    /* Palette Variables */
-    --gantt-color-1: #52ba52;
-    --gantt-color-2: #5ca5d7;
-    --gantt-color-3: #ff7f0e;
-    --gantt-color-4: #ad91c6;
-    --gantt-color-5: #8c564b;
-    --gantt-color-6: #e377c2;
-    --gantt-color-7: #7f7f7f;
-    --gantt-color-8: #bcbd22;
-    --gantt-color-9: #17becf;
+
+    /* STATE COLORS (Light Mode) */
+    --gantt-color-1: #9aa4af;
+    --gantt-color-2: #2f80ed;
+    --gantt-color-3: #27ae60;
+    --gantt-color-4: #f2994a;
+    --gantt-color-5: #9b51e0;
+    --gantt-color-6: #6c757d;
+    --gantt-color-7: #56ccf2;
+    --gantt-color-8: #f2c94c;
+    --gantt-color-9: #eb5757;
+    --gantt-color-10: #219653;
 }
+
 
 /* Dark Mode Overrides */
 @media (prefers-color-scheme: dark) {
@@ -34,17 +36,24 @@
         --gantt-container-bg: #1e1e1e;
         --gantt-status-bg: #2d2d2d;
         --gantt-text: #e0e0e0;
-        --gantt-text-muted: #cccccc;
+        --gantt-text-muted: #bdbdbd;
         --gantt-border: #444444;
         --gantt-popup-bg: #2d2d2d;
-        --gantt-hr: #444444;
+        --gantt-hr: #3a3a3a;
         --gantt-grid-line: #333333;
 
-        /* Muted Palette for Dark Mode */
-        --gantt-color-1: #2d662d;
-        --gantt-color-2: #3a6887;
-        --gantt-color-3: #a35209;
-        /* ... add others as needed ... */
+        /* STATE COLORS (Dark Mode tuned for contrast) */
+
+        --gantt-color-1: #7f8c98;
+        --gantt-color-2: #4ea1ff;
+        --gantt-color-3: #35d07f;
+        --gantt-color-4: #ffb066;
+        --gantt-color-5: #bb86fc;
+        --gantt-color-6: #8a939c;
+        --gantt-color-7: #63d2ff;
+        --gantt-color-8: #f7d774;
+        --gantt-color-9: #ff6b6b;
+        --gantt-color-10: #3ddc97;
     }
 }
 
