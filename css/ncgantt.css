@@ -14,6 +14,20 @@
     --gantt-hr: #e9e9e9;
     --gantt-grid-line: #eeeeee;
     --g-weekend-highlight-color: #e8e8f0;
+    --g-arrow-color: #1f2937;
+    --g-actions-background: #f3f3f3;
+    --g-border-color: #ebeff2;
+    --g-header-background: var(--gantt-container-bg);
+    --g-row-color: #fdfdfd;
+    --g-row-border-color: #c7c7c7;
+    --g-text-dark: var(--gantt-text);
+    --g-text-muted: var(--gantt-text-muted);
+    --g-tick-color: var(--gantt-grid-line);
+    --g-tick-color-thick: var(--gantt-border);
+    --g-today-highlight: #37352f;
+    --g-progress-color: #dbdbdb;
+    --g-handle-color: #37352f;
+    --g-popup-actions: #ebeff2;
 
     /* STATE COLORS (Light Mode) */
     --gantt-color-1: #56ccf2;
@@ -42,6 +56,20 @@
         --gantt-hr: #3a3a3a;
         --gantt-grid-line: #333333;
         --g-weekend-highlight-color: #2a2f36;
+        --g-arrow-color: #d8dee9;
+        --g-actions-background: #2f3338;
+        --g-border-color: #333940;
+        --g-header-background: var(--gantt-container-bg);
+        --g-row-color: #1f2226;
+        --g-row-border-color: #3a4149;
+        --g-text-dark: var(--gantt-text);
+        --g-text-muted: var(--gantt-text-muted);
+        --g-tick-color: #3a4149;
+        --g-tick-color-thick: #59636f;
+        --g-today-highlight: #4b8bd8;
+        --g-progress-color: #56606c;
+        --g-handle-color: #d8dee9;
+        --g-popup-actions: #373d45;
 
         /* STATE COLORS (Dark Mode tuned for contrast) */
         --gantt-color-1: #63d2ff;
@@ -58,23 +86,100 @@
 
 }
 
+html.theme-dark {
+    --gantt-bg: #1e1e1e;
+    --gantt-container-bg: #1e1e1e;
+    --gantt-status-bg: #2d2d2d;
+    --gantt-text: #e0e0e0;
+    --gantt-text-muted: #bdbdbd;
+    --gantt-border: #444444;
+    --gantt-popup-bg: #2d2d2d;
+    --gantt-hr: #3a3a3a;
+    --gantt-grid-line: #333333;
+    --g-weekend-highlight-color: #2a2f36;
+    --g-arrow-color: #d8dee9;
+    --g-actions-background: #2f3338;
+    --g-border-color: #333940;
+    --g-header-background: var(--gantt-container-bg);
+    --g-row-color: #1f2226;
+    --g-row-border-color: #3a4149;
+    --g-text-dark: var(--gantt-text);
+    --g-text-muted: var(--gantt-text-muted);
+    --g-tick-color: #3a4149;
+    --g-tick-color-thick: #59636f;
+    --g-today-highlight: #4b8bd8;
+    --g-progress-color: #56606c;
+    --g-handle-color: #d8dee9;
+    --g-popup-actions: #373d45;
+}
+
 
 .app-ncgantt {
     /* Frappe Gantt overrides */
+    .gantt-container {
+        background: var(--gantt-container-bg);
+        color: var(--gantt-text);
+    }
+
+    .gantt-container .grid-header,
+    .gantt-container .side-header,
+    .gantt-container .current-upper {
+        background: var(--g-header-background);
+        color: var(--gantt-text);
+    }
+
+    .gantt-container .upper-text {
+        color: var(--gantt-text);
+    }
+
+    .gantt-container .lower-text {
+        color: var(--gantt-text-muted);
+    }
+
+    .gantt-container .side-header button,
+    .gantt-container .side-header select {
+        background-color: var(--g-actions-background);
+        color: var(--gantt-text);
+    }
+
+    .gantt .grid-row {
+        fill: var(--g-row-color);
+    }
+
+    .gantt .row-line {
+        stroke: var(--g-border-color);
+    }
+
     .gantt-container .tick {
-        stroke: var(--gantt-grid-line);
+        stroke: var(--g-tick-color);
         stroke-width: 0.5px;
     }
 
     .gantt-container .tick.thick {
-        stroke: var(--gantt-border);
+        stroke: var(--g-tick-color-thick);
         stroke-width: 1px;
     }
 
+    .gantt .arrow {
+        stroke: var(--g-arrow-color);
+    }
+
+    .gantt .bar-label,
+    .gantt .bar-label.big {
+        fill: var(--gantt-text);
+    }
+
     .gantt-container .current-date-highlight {
+        background: var(--g-today-highlight);
+        color: #ffffff;
         border-radius: 3px;
         margin: 0 !important;
         width: var(--gv-column-width) !important;
+    }
+
+    .gantt-container .current-highlight,
+    .gantt-container .current-ball-highlight {
+        background: var(--g-today-highlight);
     }
 
     /* Main container */
