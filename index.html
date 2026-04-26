@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/ncgantt.css">
 	<script src="js/nxgantt_GanttHeightManager.js"></script>
 	<script src="js/ncgantt_NCGantt.js"></script>
+	<script src="config.local.js" onerror="/* optional file */"></script>
 		
 	<style>
         body {
@@ -202,6 +203,17 @@
 		</div>
         <div id="gantt-container"></div>
 	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			if (!window.ncganttConfig) {
+				return;
+			}
+
+			const config = window.ncganttConfig;
+			if (config.url) document.getElementById('url').value = config.url;
+			if (config.username) document.getElementById('username').value = config.username;
+			if (config.token) document.getElementById('token').value = config.token;
+		});
+	</script>
 </body>
 </html>
-
